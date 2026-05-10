@@ -1,0 +1,234 @@
+/* 2026 Venice Biennale - 视觉风格改造
+   参考：Albania Pavilion 幻灯片风格
+   特点：深色背景、白色文字、现代无衬线字体
+*/
+
+/* 全局样式定义 - 参考提供的Albania Pavilion样式 */
+:root {
+    --bg-color: #15221b; /* 深绿近黑色背景 - 与参考代码一致 */
+    --text-color: #ffffff; /* 白色文字 */
+    --accent-yellow: #f0c040; /* 亮黄色 - 用于标题强调 */
+    --text-secondary: rgba(255, 255, 255, 0.8); /* 次要文字 */
+    --border-color: rgba(255, 255, 255, 0.2); /* 边框颜色 */
+    --font-main: "Helvetica Neue", Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    --font-heading: "Helvetica Neue", Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 标题块 */
+#title-block-header {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#title-block-header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--accent-yellow);
+}
+
+/* 主标题 */
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-yellow);
+    color: var(--accent-yellow);
+}
+
+/* 国家名称标题 */
+h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 50px 0 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(240, 192, 64, 0.1), transparent);
+    border-left: 4px solid var(--accent-yellow);
+    color: var(--text-color);
+}
+
+/* 副标题 */
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 25px 0 15px 0;
+    color: var(--accent-yellow);
+}
+
+/* 段落 - 除国家名称外的所有内容字号为 1.5rem */
+p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* 强强调 */
+strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* 链接 */
+a {
+    color: var(--accent-yellow);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* 水平分割线 */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    margin: 50px 0;
+}
+
+/* 图片容器 */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* 表格样式 - 文件末尾的汇总表格 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.5rem;
+}
+
+th {
+    background-color: rgba(240, 192, 64, 0.2);
+    color: var(--accent-yellow);
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 代码块 */
+code {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+/* 中英文双语显示样式 */
+.bilingual {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.bilingual .english {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.bilingual .chinese {
+    font-size: 1.5rem;
+    color: var(--accent-yellow);
+    font-weight: 400;
+}
+
+/* Exhibition 和 Artist 标签样式 */
+.field-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 1.2rem;  /* 移动端base字号 */
+    }
+    
+    #title-block-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;  /* 国家名称，保持不变 */
+        padding: 15px;
+    }
+    
+    h3 {
+        font-size: 1.5rem;  /* 除国家名称外，统一为1.5rem */
+    }
+    
+    p {
+        font-size: 1.5rem;  /* 除国家名称外，统一为1.5rem */
+    }
+    
+    .bilingual, .bilingual .english, .bilingual .chinese {
+        font-size: 1.5rem;  /* 除国家名称外，统一为1.5rem */
+    }
+}
+
+/* 打印样式 */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    h1, h2, h3 {
+        color: black;
+        border-color: #333;
+    }
+    
+    a {
+        color: blue;
+    }
+}
